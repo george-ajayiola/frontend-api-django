@@ -17,16 +17,13 @@ def get_rabbitmq_connection():
     # Amazon MQ endpoint
     endpoint = 'b-0af8867b-97dd-47cc-aad8-b579ba6bc935.mq.us-east-1.amazonaws.com'
     port = 5671  
-
-    # Amazon MQ credentials (replace with your actual username and password)
     username = os.environ.get('USERNAME')
     password = os.environ.get('PASSWORD')
 
-    # SSL context
+
     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     ssl_context.set_ciphers('ECDHE+AESGCM:!ECDSA')
 
-    # Connection parameters
     credentials = pika.PlainCredentials(username, password)
     parameters = pika.ConnectionParameters(
         host=endpoint,
@@ -47,7 +44,6 @@ def consume_book_events():
         connection = get_rabbitmq_connection()
         channel = connection.channel()
 
-        # Declare the queue (if it doesn't exist)
         channel.queue_declare(queue='book_queue', durable=True)
 
         print(" [*] Waiting for book events. To exit, press CTRL+C")
@@ -55,13 +51,11 @@ def consume_book_events():
         def callback(ch, method, properties, body):
             print(f"Received message: {body}")
             try:
-                # Parse the message
                 event = json.loads(body)
                 event_type = event.get('event_type')  # 'book_created' or 'book_deleted'
-                book_data = event.get('book_data')  # Book data for creation/update/deletion
+                book_data = event.get('book_data')  
                
                 if event_type == 'book_created':
-                    # Update or create the book in the Frontend API's database
                     Book.objects.update_or_create(
                         id=book_data['id'],
                         defaults={
@@ -74,7 +68,6 @@ def consume_book_events():
                     print(f" [x] Updated/Created book: {book_data['title']}")
 
                 elif event_type == 'book_deleted':
-                    # Delete the book from the Frontend API's database
                     Book.objects.filter(id=book_data['id']).delete()
                     print(f" [x] Deleted book: {book_data['title']}")
 
