@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.utils import timezone
 from rest_framework import generics
+from .pagination import PageSizePagination
 from .serializers import UserSerializer, BookSerializer, BorrowBookInputSerializer, UserWithBooksSerializer, BorrowedBookSerializer
 
 
@@ -20,6 +21,7 @@ class UserListView(generics.ListAPIView):
 class AvailableBookListView(generics.ListAPIView):
     queryset = Book.objects.filter(available=True)
     serializer_class = BookSerializer
+    pagination_class = PageSizePagination
     filterset_fields = ('publisher','category')
 
 class UnAvailableBookListView(generics.ListAPIView):
