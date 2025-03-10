@@ -9,7 +9,7 @@ Project Architecture
 
 ## Architecture Overview
 - **Frontend API (Django)**: Allows users to enroll into the library, browse books, borrow books, and filter books by publisher and category.
-- **Admin API (Flask)**: Enables admins to add and remove books from the catalogue and list enrolled users.
+- **Admin API (Flask)**: Enables admins to add and remove books from the catalogue , view enrolled users, view users with borrowed books and view the books that are not available for borrowing (showing the day it will be available).
 - **Message Queue**: Amazon MQ RabbitMQ facilitates communication between the two services.
 - **Deployment**: Both APIs are containerized with Docker and deployed on Amazon ECS using two ECS services behind an Application Load Balancer (ALB).
 
