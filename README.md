@@ -2,6 +2,9 @@
 
 This repo is a documentation for two independent API services designed to manage books in a library. The APIs communicate with each other using Amazon MQ RabbitMQ message queues and are deployed to AWS ECS.
 
+
+![](img/archi.png)
+
 ## Architecture Overview
 - **Frontend API (Django)**: Allows users to enroll into the library, browse books, borrow books, and filter books by publisher and category.
 - **Admin API (Flask)**: Enables admins to add and remove books from the catalogue and list enrolled users.
