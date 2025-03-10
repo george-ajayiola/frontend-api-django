@@ -1,6 +1,6 @@
 # Library Management System
 
-This project consists of two independent API services designed to manage books in a library. The APIs communicate with each other using Amazon MQ RabbitMQ message queues and are deployed to AWS ECS.
+This repo is a documentation for two independent API services designed to manage books in a library. The APIs communicate with each other using Amazon MQ RabbitMQ message queues and are deployed to AWS ECS.
 
 ## Architecture Overview
 - **Frontend API (Django)**: Allows users to enroll into the library, browse books, borrow books, and filter books by publisher and category.
