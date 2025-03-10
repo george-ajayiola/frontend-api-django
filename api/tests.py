@@ -1,11 +1,8 @@
-from django.test import TestCase, TransactionTestCase
+from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
 from .models import User, Book
-from .serializers import UserSerializer, BookSerializer, BorrowBookInputSerializer
-from django.utils import timezone
-import json
 
 class UserViewTests(TestCase):
     def setUp(self):
@@ -15,7 +12,6 @@ class UserViewTests(TestCase):
             "firstname": "John",
             "lastname": "Doe"
         }
-        #self.user = User.objects.create(**self.user_data)
 
     def test_create_user(self):
         """
