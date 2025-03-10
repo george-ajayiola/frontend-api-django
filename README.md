@@ -13,7 +13,7 @@ This repo is a documentation for two independent API services designed to manage
 
 ## Technologies Used
 - Django (Frontend API)
-- Flask (Admin API)
+- Flask ([Admin API](https://github.com/george-ajayiola/admin-api-flask))
 - Amazon MQ RabbitMQ
 - AWS ECS (Elastic Container Service)
 - AWS ALB (Application Load Balancer)
