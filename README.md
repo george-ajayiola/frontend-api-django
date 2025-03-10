@@ -4,6 +4,7 @@ This repo is a documentation for two independent API services designed to manage
 
 
 ![](img/archi.png)
+Project Architecture
 
 ## Architecture Overview
 - **Frontend API (Django)**: Allows users to enroll into the library, browse books, borrow books, and filter books by publisher and category.
