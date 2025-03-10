@@ -10,10 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@m6t^lx)(dw%@u#%w44kx$(_%9p!^*&s(-&3ri998hto-tuzq*'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -141,4 +141,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10, 
 }
-CORS_ALLOW_ALL_ORIGINS = True 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://applicatioalb-1070426547.us-east-1.elb.amazonaws.com"
+] 
