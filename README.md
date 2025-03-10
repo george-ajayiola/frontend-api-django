@@ -4,6 +4,7 @@ This repo is a documentation for two independent API services designed to manage
 
 
 ![](img/archi.png)
+
 Project Architecture
 
 ## Architecture Overview
