@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "f6a48b4e-40c5-4bab-87e8-1f0ed83da2fd",
+		"name": "Library Management System API",
+		"description": "This is a documentation for the two API services frontend and Admin API for a library management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32987570"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "Add book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"final destination\",\r\n    \"publisher\": \"George Aj\",\r\n    \"category\": \"fiction\",\r\n    \"author\": \"Robert Downney\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/api/admin/book",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"book"
+							]
+						},
+						"description": "This endpoint allows the admin to add new books to the catalogue"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/api/admin/9",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"9"
+							]
+						},
+						"description": "This endpoint allows the admin toremove a book from the catalogue"
+					},
+					"response": []
+				},
+				{
+					"name": "borrowed books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/api/admin/borrowed-books",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"borrowed-books"
+							]
+						},
+						"description": "This endpoint allows the admin to\n\n- Fetch/List the books that are not available for borrowing (showing the day it will be available)"
+					},
+					"response": []
+				},
+				{
+					"name": "enrolled users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/api/admin/users",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						},
+						"description": "This endpoint allows the admin to\n\n- Fetch / List users enrolled in the library."
+					},
+					"response": []
+				},
+				{
+					"name": "users-with-books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/api/admin/users-with-books",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users-with-books"
+							]
+						},
+						"description": "This endpoint allows the admin to\n\n- Fetch/List users and the books they have borrowed"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "frontend",
+			"item": [
+				{
+					"name": "enroll-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Jim\",\r\n    \"lastname\":  \"Rohn\",\r\n    \"email\":\"jim@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/api/userCreate",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"userCreate"
+							]
+						},
+						"description": "This endpoint allows users to enroll into the library using their email, firstname and lastname."
+					},
+					"response": []
+				},
+				{
+					"name": "Available books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/api/frontend/books",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"frontend",
+								"books"
+							]
+						},
+						"description": "This endpoint allows users to\n\n- See all available books"
+					},
+					"response": []
+				},
+				{
+					"name": "Book-by-ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/api/frontend/book/{{id}}",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"frontend",
+								"book",
+								"{{id}}"
+							]
+						},
+						"description": "This endpoint allows users to\n\n- Get a single book by its ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Borrow-book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jim@gmail.com\",\r\n    \"duration_days\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/api/frontend/book/{{id}}/borrow",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"api",
+								"frontend",
+								"book",
+								"{{id}}",
+								"borrow"
+							]
+						},
+						"description": "This endpoint allows users to\n\n- Borrow books by id (specify how long you want it for in days)"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://applicatioalb-1070426547.us-east-1.elb.amazonaws.com",
+			"type": "default"
+		}
+	]
+}
