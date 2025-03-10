@@ -20,6 +20,7 @@ Project Architecture
 - AWS ECS (Elastic Container Service)
 - AWS ALB (Application Load Balancer)
 - Docker
+  
   Deployment Architecture can be found in [Admin API](https://github.com/george-ajayiola/admin-api-flask) repo
 
 ## How Communication Works
