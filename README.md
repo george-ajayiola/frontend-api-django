@@ -21,7 +21,7 @@ Project Architecture
 - AWS ALB (Application Load Balancer)
 - Docker
   
-  Deployment Architecture can be found in [Admin API](https://github.com/george-ajayiola/admin-api-flask) repo
+  
 
 ## How Communication Works
 1. When a new book is added or removed via the Admin API, an event is published to RabbitMQ.
@@ -32,7 +32,7 @@ Project Architecture
 
 ## Deployment
 1. Build Docker images and push them to Docker Hub.
-2. Deploy both services to AWS ECS with separate task definitions.
+2. Deploy both services to AWS ECS with separate task definitions. Deployment Architecture can be found in [Admin API](https://github.com/george-ajayiola/admin-api-flask) repo
 3. Configure Amazon MQ RabbitMQ for message brokering.
 4. Use Application Load Balancer to route traffic to the ECS services.
 
